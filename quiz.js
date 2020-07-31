@@ -1,6 +1,6 @@
 // Variable declarations
 
-// Function
+// Functions
 function startQuiz() {
     let counter = 60;
     var interval = setInterval(function() {
@@ -15,5 +15,6 @@ function startQuiz() {
     }
 }, 1000);
 }
+
 // Event listeners
 document.getElementById("start-btn").addEventListener("click", startQuiz);

@@ -4,6 +4,12 @@
 
 .high-scores {
     color: rebeccapurple;
+    opacity: 1;
+}
+
+.high-scores:hover {
+    opacity: .75;
+    color: rebeccapurple;
 }
 
 #timer {
