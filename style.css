@@ -6,21 +6,21 @@
     color: rebeccapurple;
 }
 
-.timer {
+#timer {
    float: right;
 }
 
-.seconds {
+#seconds {
 
 }
 
-.jumbotron {
-    background-color: white;
+.container {
     text-align: center;
-    margin-right: 20rem;
-    margin-left: 20rem;
-    min-width: min-content;
+    padding: 4rem;
 }
+ h2 {
+    font-weight: bold;
+ }
 
 p {
     margin-top: 1rem;
@@ -29,6 +29,16 @@ p {
 .btn {
     background-color: rebeccapurple;
     color: white;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.btn:hover {
+    opacity: .75;
+}
+
+#start-btn {
+
 }
 
 

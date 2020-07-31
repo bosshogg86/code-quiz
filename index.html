@@ -17,16 +17,16 @@
   </head>
   <body>
     <nav class="navbar">
-      <a href="#" class="high-scores">High Scores</a>
-      <div class="timer">Time Left: <span class="seconds">0</span></div>
+      <a href="#" class="high-scores">View High Scores</a>
+      <div id="timer">Time: <span id="seconds">60</span></div>
     </nav>
-    <main class="jumbotron">
+    <main class="container">
       <h2>Javascript Coding Quiz</h1>
       <p>
         Try to answer the following questions within the time limit. Be careful,
         each wrong answer subtracts from the total remaining time!
       </p>
-      <button type="button" class="btn">Start Quiz</button>
+      <button type="button" class="btn" id="start-btn">Start Quiz</button>
     </main>
     <script src="quiz.js"></script>
     <script
