@@ -3,26 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Code Quiz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <header>
-        <div id="high-scores">View High Scores</div>
-        <div id="timer">Time Left</div>
-    </header>
-    
-    <main class="container">
-        <div class="row">Question</div>
-        <div class="row">
+    <nav class="navbar navbar-light bg-light">
+            <a href="#" class="high-scores">High Scores</a>
+            <div class="timer">Time Left: <span class="seconds">0</span></div>
+    </nav>     
+    <main class="container quiz">
+        <div>
+            <h1 style="font-size:6vw">Javascript Coding Quiz</h1>
+            <h2 style="font-size:2vw">Try to answer the following questions within the time limit. Be careful, each wrong answer subtracts from the total remaining time!</h2>
+        </div>
+        <div>
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                <button type="button" class="btn btn-secondary">1</button>
-                <button type="button" class="btn btn-secondary">2</button>
+                <button type="button" class="btn btn-primary">Start Quiz</button>
+                <!-- <button type="button" class="btn btn-secondary">2</button>
                 <button type="button" class="btn btn-secondary">3</button>
-                <button type="button" class="btn btn-secondary">4</button>
+                <button type="button" class="btn btn-secondary">4</button> -->
         </div>
     </main>
-    
     <script src="quiz.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

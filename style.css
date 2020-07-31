@@ -1,7 +1,16 @@
-#highscores {
-    text-align: left;
+.high-scores {
+    
 }
 
-#timer {
-    text-align: right;
+.timer {
+   float: right;
+}
+
+.seconds {
+
+}
+
+.quiz {
+    text-align: center;
+    margin: auto;
 }
