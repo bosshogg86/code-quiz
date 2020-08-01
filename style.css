@@ -20,6 +20,8 @@
 
 #home {
     text-align: center;
+    padding-left: 5rem;
+    padding-right: 5rem;
 }
 
 #question-container {
@@ -45,6 +47,7 @@ p {
     opacity: 1;
     display: block;
     margin-top: .2rem;
+    line-height: 1;
 }
 
 #start-btn {
