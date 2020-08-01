@@ -1,15 +1,18 @@
 // Variable declarations
 const startButton = document.getElementById("start-btn");
 const questionContainer = document.getElementById("question-container");
+const instructions = document.getElementById("home");
 let score = 0;
 let questions = [
     {
-        
+
     }
 ]
 // Functions
 function startQuiz() {
   startButton.classList.add("hide");
+  questionContainer.classList.remove("hide");
+  instructions.classList.add("hide");
   let counter = 60;
   let interval = setInterval(function () {
     counter--;
