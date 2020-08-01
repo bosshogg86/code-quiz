@@ -16,10 +16,6 @@
    float: right;
 }
 
-#seconds {
-
-}
-
 .container {
     text-align: center;
     padding: 4rem;
@@ -43,8 +39,6 @@ p {
     opacity: .75;
 }
 
-#start-btn {
-
+.hide {
+    display: none;
 }
-
-
