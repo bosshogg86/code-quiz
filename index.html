@@ -22,8 +22,8 @@
       <a href="#" class="high-scores">View High Scores</a>
       <div id="timer">Time: <span id="seconds">60</span></div>
     </nav>
-    <div class="container">
-      <div class="instructions" id="home">
+    <div class="container" id="home">
+      <div class="instructions">
         <h2>Coding Quiz Challenge</h1>
         <p>
           Try to answer the following questions within the time limit. Be careful,
@@ -31,16 +31,16 @@
         </p>
         <button type="button" class="btn" id="start-btn">Start Quiz</button>
       </div>
-      
+    </div>  
       <!-- Question 1 container -->
       <div id="question-container" class="container hide">
-        <h2>Who invented JavaScript?</h2>
-        <button type="button" class="btn">1. Elon Musk</button>
-        <button type="button" class="btn">2. Bill Gates</button>
-        <button type="button" class="btn">3. Mark Zuckerberg</button>
-        <button type="button" class="btn">4. Brendan Eich</button>
+        <h2 id="question">Who invented JavaScript?</h2>
+        <button type="button" class="btn choice-text" data-number="1">1. Elon Musk</button>
+        <button type="button" class="btn choice-text" data-number="2">2. Bill Gates</button>
+        <button type="button" class="btn choice-text" data-number="3">3. Mark Zuckerberg</button>
+        <button type="button" class="btn choice-text" data-number="4">4. Brendan Eich</button>
       </div>
-    </div>
+    
     <script src="quiz.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
