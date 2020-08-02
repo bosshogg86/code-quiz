@@ -20,9 +20,9 @@
     <!-- Navbar -->
     <nav class="navbar">
       <a href="#" class="high-scores">View High Scores</a>
-      <div id="timer">Time: <span id="seconds">60</span></div>
+      <div class="hide" id="timer">Time: <span id="seconds">60</span></div>
     </nav>
-    <div class="container" id="home">
+    <div class="container card" id="home">
       <div class="instructions">
         <h2>Coding Quiz Challenge</h1>
         <p>
@@ -33,12 +33,12 @@
       </div>
     </div>  
       <!-- Question 1 container -->
-      <div id="question-container" class="container hide">
+      <div id="question-container" class="container card hide">
         <h2 id="question">Who invented JavaScript?</h2>
-        <button type="button" class="btn choice-text" data-number="1">1. Elon Musk</button>
-        <button type="button" class="btn choice-text" data-number="2">2. Bill Gates</button>
-        <button type="button" class="btn choice-text" data-number="3">3. Mark Zuckerberg</button>
-        <button type="button" class="btn choice-text" data-number="4">4. Brendan Eich</button>
+        <button type="button" class="btn choice-text" id="0">1. Elon Musk</button>
+        <button type="button" class="btn choice-text" id="1">2. Bill Gates</button>
+        <button type="button" class="btn choice-text" id="2">3. Mark Zuckerberg</button>
+        <button type="button" class="btn choice-text" id="3">4. Brendan Eich</button>
       </div>
     
     <script src="quiz.js"></script>
