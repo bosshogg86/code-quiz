@@ -1,43 +1,32 @@
 // Variable declarations
 const home = document.getElementById("home");
 const timer = document.getElementById("timer");
-const startButton = document.getElementById("start-btn");
-const questionContainer = document.getElementById("question-container");
-const question = document.getElementById("question");
-const choices = Array.from(document.querySelector(".choice-text"));
-let score = 0;
+const quiz = document.getElementById("quiz");
+var questionCounter = 0;
+var selections = [];
 let questions = [
     {
         question: 'Who invented JavaScript?',
-        choice0: '1. Elon Musk',
-        choice1: '2. Bill Gates',
-        choice2: '3. Mark Zuckerberg',
-        choice3: '4. Brendan Eich',
+        choices: ['1. Elon Musk', '2. Bill Gates' , '3. Mark Zuckerberg',
+         '4. Brendan Eich'],
         answer: 3,
     },
     {
-        question:
-            "How many days did it take to write JavaScript?",
-        choice0: "10 days",
-        choice1: "2 weeks",
-        choice2: "2 months",
-        choice3: "2 years",
+        question: "How many days did it take to write JavaScript?",
+        choices: ["10 days", "2 weeks", "2 months", "2 years"],
         answer: 0,
     },
     {
-        question: " How do you write 'Hello World' in an alert box?",
-        choice0: "msgBox('Hello World');",
-        choice1: "alertBox('Hello World');",
-        choice2: "msg('Hello World');",
-        choice3: "alert('Hello World');",
-        answer: 3,
+        question: "What language is used the most?",
+        choices: ["Java", "C++", "JavaScript", "Python"],
+        answer: 2,
     },
 ];
 
 // Functions
 function startQuiz() {
   home.classList.add("hide");
-  questionContainer.classList.remove("hide");
+  quiz.classList.remove("hide");
   timer.classList.remove("hide");
   let counter = 60;
   let interval = setInterval(function () {
@@ -51,12 +40,22 @@ function startQuiz() {
       console.log("Timer --> " + counter);
     }
   }, 1000);
+  createQuestionElement();
 }
 
-function nextQuestion() {
- 
+function createQuestionElement(index) {
+  let qElement = $('<div>', {
+    id: 'question'
+  });
+  
+  let header = $('<h2>Question ' + (index + 1) + ':</h2>');
+  qElement.append(header);
+  
+  let question = $('<p>').append(questions[index].question);
+  qElement.append(question);
+  
+  return qElement;
 }
 
 // Event listeners
 document.getElementById("start-btn").addEventListener("click", startQuiz);
-document.getElementById("question-container").addEventListener("click", nextQuestion);
