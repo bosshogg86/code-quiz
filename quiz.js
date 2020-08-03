@@ -4,26 +4,25 @@ const timer = document.getElementById("timer");
 const quiz = document.getElementById("quiz");
 let question = document.getElementById("question");
 let questions = [
-    {
-        question: 'Who invented JavaScript?',
-        choices: ['Elon Musk', 'Bill Gates' , 'Mark Zuckerberg',
-         'Brendan Eich'],
-        answer: 3,
-    },
-    {
-        question: "How many days did it take to write JavaScript?",
-        choices: ["10 days", "2 weeks", "2 months", "2 years"],
-        answer: 0,
-    },
-    {
-        question: "What language is the most widely used today?",
-        choices: ["Java", "C++", "JavaScript", "Python"],
-        answer: 2,
-    },
-    {
-      question: "What is JavaScript?",
-      choices: ["Algorithm", "Function", "Formula", "Programming Language"],
-      answer: 0,
+  {
+    question: "Who invented JavaScript?",
+    choices: ["Elon Musk", "Bill Gates", "Mark Zuckerberg", "Brendan Eich"],
+    answer: 3,
+  },
+  {
+    question: "How many days did it take to write JavaScript?",
+    choices: ["10 days", "2 weeks", "2 months", "2 years"],
+    answer: 0,
+  },
+  {
+    question: "What programming language is the most widely used today?",
+    choices: ["Java", "C++", "JavaScript", "Python"],
+    answer: 2,
+  },
+  {
+    question: "What is JavaScript?",
+    choices: ["Algorithm", "Function", "Formula", "Programming Language"],
+    answer: 0,
   },
 ];
 
