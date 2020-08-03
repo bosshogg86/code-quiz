@@ -3,29 +3,31 @@ const home = document.getElementById("home");
 const timer = document.getElementById("timer");
 const quiz = document.getElementById("quiz");
 let question = document.getElementById("question");
+let userChoice;
+let availableQuestions = [];
 let questions = [
   {
     question: "Who invented JavaScript?",
     choices: ["Elon Musk", "Bill Gates", "Mark Zuckerberg", "Brendan Eich"],
-    answer: 3,
+    answer: "Brendan Eich",
   },
   {
     question: "How many days did it take to write JavaScript?",
     choices: ["10 days", "2 weeks", "2 months", "2 years"],
-    answer: 0,
+    answer: "10 days",
   },
   {
     question: "What programming language is the most widely used today?",
     choices: ["Java", "C++", "JavaScript", "Python"],
-    answer: 2,
+    answer: "JavaScript",
   },
   {
     question: "What is JavaScript?",
     choices: ["Algorithm", "Function", "Formula", "Programming Language"],
-    answer: 0,
+    answer: "Programming Language",
   },
 ];
-
+let currentQuestion = questions[0];
 
 // Functions
 function startQuiz() {
@@ -41,14 +43,12 @@ function startQuiz() {
       return;
     } else {
       $("#seconds").text(counter);
-      console.log("Timer --> " + counter);
     }
   }, 1000);
   setNextQuestion();
 }
 
 function setNextQuestion() {
-  let currentQuestion = questions[Math.floor(Math.random() * questions.length)];
   document.getElementById("question").textContent = "";
   document.getElementById("btn0").textContent = "";
   document.getElementById("btn1").textContent = "";
@@ -61,10 +61,19 @@ function setNextQuestion() {
   document.getElementById("btn3").append(currentQuestion.choices[3]);
 }
 
-// if () {
 
-// }
+
+function result() {
+  
+  if (event.target.textContent === currentQuestion.answer) {
+    alert("true");
+  } else {
+    alert("false");
+  }
+  // currentQuestion++;
+  setNextQuestion();
+}
 
 // Event listeners
 document.getElementById("start-btn").addEventListener("click", startQuiz);
-document.querySelector("#quiz").addEventListener("click", setNextQuestion);
+document.querySelector("#quiz").addEventListener("click", result,);
