@@ -4,7 +4,7 @@ const timer = document.getElementById("timer");
 const quiz = document.getElementById("quiz");
 let question = document.getElementById("question");
 let userChoice;
-let availableQuestions = [];
+let counter = 60;
 let questions = [
   {
     question: "Who invented JavaScript?",
@@ -27,14 +27,14 @@ let questions = [
     answer: "Programming Language",
   },
 ];
-let currentQuestion = questions[0];
+let availableQuestions = questions.slice();
+let currentQuestion = availableQuestions[0];
 
 // Functions
 function startQuiz() {
   home.classList.add("hide");
   quiz.classList.remove("hide");
   timer.classList.remove("hide");
-  let counter = 60;
   let interval = setInterval(function () {
     counter--;
     if (counter <= 0) {
@@ -62,18 +62,18 @@ function setNextQuestion() {
 }
 
 
-
 function result() {
-  
+  availableQuestions.shift();
   if (event.target.textContent === currentQuestion.answer) {
-    alert("true");
+    counter += 5;
+    setNextQuestion();
+  
   } else {
-    alert("false");
+    counter -= 5;
+    setNextQuestion();
   }
-  // currentQuestion++;
-  setNextQuestion();
 }
 
 // Event listeners
 document.getElementById("start-btn").addEventListener("click", startQuiz);
-document.querySelector("#quiz").addEventListener("click", result,);
+document.querySelector(".group").addEventListener("click", result,);
