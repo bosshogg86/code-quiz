@@ -1,3 +1,7 @@
+body {
+    background-color: lightgray;
+}
+
 .high-scores {
     color: rebeccapurple;
     opacity: 1;
@@ -13,22 +17,19 @@
 }
 
 .container {
-    display: block;
     text-align: center;
-    padding: 4rem;
-}
-
-#home {
-    text-align: center;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding: 5rem;
+    margin: 5rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
 }
 
 #quiz {
-    text-align: left;
-    padding: 1rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
+    text-align: center;
+    padding: 2rem;
+    margin: 5rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
 }
 
 h2 {
@@ -45,9 +46,9 @@ p {
     color: white;
     cursor: pointer;
     opacity: 1;
-    display: block;
+    max-width: max-content;
+    margin: auto;
     margin-top: .2rem;
-    line-height: 1;
 }
 
 #start-btn {

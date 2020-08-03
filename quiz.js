@@ -2,13 +2,12 @@
 const home = document.getElementById("home");
 const timer = document.getElementById("timer");
 const quiz = document.getElementById("quiz");
-var questionCounter = 0;
-var selections = [];
+let question = document.getElementById("question");
 let questions = [
     {
         question: 'Who invented JavaScript?',
-        choices: ['1. Elon Musk', '2. Bill Gates' , '3. Mark Zuckerberg',
-         '4. Brendan Eich'],
+        choices: ['Elon Musk', 'Bill Gates' , 'Mark Zuckerberg',
+         'Brendan Eich'],
         answer: 3,
     },
     {
@@ -17,10 +16,15 @@ let questions = [
         answer: 0,
     },
     {
-        question: "What language is used the most?",
+        question: "What language is the most widely used today?",
         choices: ["Java", "C++", "JavaScript", "Python"],
         answer: 2,
     },
+    {
+      question: "What is JavaScript?",
+      choices: ["Algorithm", "Function", "Formula", "Programming Language"],
+      answer: 0,
+  },
 ];
 
 // Functions
@@ -40,21 +44,16 @@ function startQuiz() {
       console.log("Timer --> " + counter);
     }
   }, 1000);
-  createQuestionElement();
+  setNextQuestion();
 }
 
-function createQuestionElement(index) {
-  let qElement = $('<div>', {
-    id: 'question'
-  });
-  
-  let header = $('<h2>Question ' + (index + 1) + ':</h2>');
-  qElement.append(header);
-  
-  let question = $('<p>').append(questions[index].question);
-  qElement.append(question);
-  
-  return qElement;
+function setNextQuestion() {
+  let currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+  document.getElementById("question").append(currentQuestion.question);
+  document.getElementById("btn0").append(currentQuestion.choices[0]);
+  document.getElementById("btn1").append(currentQuestion.choices[1]);
+  document.getElementById("btn2").append(currentQuestion.choices[2]);
+  document.getElementById("btn3").append(currentQuestion.choices[3]);
 }
 
 // Event listeners
