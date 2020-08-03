@@ -26,6 +26,7 @@ let questions = [
   },
 ];
 
+
 // Functions
 function startQuiz() {
   home.classList.add("hide");
@@ -48,6 +49,11 @@ function startQuiz() {
 
 function setNextQuestion() {
   let currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+  document.getElementById("question").textContent = "";
+  document.getElementById("btn0").textContent = "";
+  document.getElementById("btn1").textContent = "";
+  document.getElementById("btn2").textContent = "";
+  document.getElementById("btn3").textContent = "";
   document.getElementById("question").append(currentQuestion.question);
   document.getElementById("btn0").append(currentQuestion.choices[0]);
   document.getElementById("btn1").append(currentQuestion.choices[1]);
@@ -55,5 +61,10 @@ function setNextQuestion() {
   document.getElementById("btn3").append(currentQuestion.choices[3]);
 }
 
+// if () {
+
+// }
+
 // Event listeners
 document.getElementById("start-btn").addEventListener("click", startQuiz);
+document.querySelector("#quiz").addEventListener("click", setNextQuestion);
