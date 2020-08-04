@@ -72,6 +72,9 @@ function result() {
   }
 }
 
+// availableQuestions.splice();
+
 // Event listeners
 document.getElementById("start-btn").addEventListener("click", startQuiz);
+
 document.querySelector("#answer-buttons").addEventListener("click", result);
