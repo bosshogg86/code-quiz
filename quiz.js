@@ -2,8 +2,7 @@
 const home = document.getElementById("home");
 const timer = document.getElementById("timer");
 const quiz = document.getElementById("quiz");
-let question = document.getElementById("question");
-let userChoice;
+const question = document.getElementById("question");
 let counter = 60;
 let questions = [
   {
@@ -30,6 +29,7 @@ let questions = [
 let availableQuestions = questions.slice();
 let currentQuestion = availableQuestions[0];
 
+
 // Functions
 function startQuiz() {
   home.classList.add("hide");
@@ -49,31 +49,29 @@ function startQuiz() {
 }
 
 function setNextQuestion() {
-  document.getElementById("question").textContent = "";
-  document.getElementById("btn0").textContent = "";
-  document.getElementById("btn1").textContent = "";
-  document.getElementById("btn2").textContent = "";
-  document.getElementById("btn3").textContent = "";
-  document.getElementById("question").append(currentQuestion.question);
-  document.getElementById("btn0").append(currentQuestion.choices[0]);
-  document.getElementById("btn1").append(currentQuestion.choices[1]);
-  document.getElementById("btn2").append(currentQuestion.choices[2]);
-  document.getElementById("btn3").append(currentQuestion.choices[3]);
+  question.innerText = currentQuestion.question;
+  document.getElementById("btn0").innerText = currentQuestion.choices[0];
+  document.getElementById("btn1").innerText = currentQuestion.choices[1];
+  document.getElementById("btn2").innerText = currentQuestion.choices[2];
+  document.getElementById("btn3").innerText = currentQuestion.choices[3];
 }
 
+function getQuestion() {
+  availableQuestions.shift();
+  setNextQuestion();
+}
 
 function result() {
-  availableQuestions.shift();
   if (event.target.textContent === currentQuestion.answer) {
-    counter += 5;
-    setNextQuestion();
-  
+    getQuestion();
+    // setNextQuestion();
   } else {
-    counter -= 5;
-    setNextQuestion();
+    counter -= 10;
+    getQuestion();
+    // setNextQuestion();
   }
 }
 
 // Event listeners
 document.getElementById("start-btn").addEventListener("click", startQuiz);
-document.querySelector(".group").addEventListener("click", result,);
+document.querySelector("#answer-buttons").addEventListener("click", result);
