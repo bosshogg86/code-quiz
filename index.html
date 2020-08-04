@@ -19,14 +19,14 @@
 
     <!-- Navbar -->
     <nav class="navbar">
-      <a href="#" class="high-scores">View High Scores</a>
+      <a href="#" id="view-high-scores">View High Scores</a>
       <div class="hide" id="timer">Time: <span id="seconds">60</span></div>
     </nav>
 
     <!-- Start Page -->
     <div class="container">
-      <div class="card" id="home">
-          <h2>Coding Quiz Challenge</h1>
+      <div id="home" class="card">
+          <h2>Coding Quiz Challenge</h2>
           <p>
             Try to answer the following questions within the time limit. Be careful,
             each wrong answer subtracts 10 seconds from the total remaining time!
@@ -44,8 +44,23 @@
           <button type="button" class="btn" id="btn3"></button>
         </div>
       </div> 
+
+      <!-- End Screen -->
+      <div id="results" class="card hide">
+        <h2>Your Score</h2>
+        <h3>Enter your initials</h3>
+          <div class="input"></div>
+          <button type="button" class="btn" id="submit">Submit</button>
+      </div> 
+
+      <!-- High Scores -->
+      <div class="high-scores card hide">
+        <h2>High Scores</h2>
+      </div>
+
     </div>
     
+
     <script 
       src="https://code.jquery.com/jquery-3.5.1.js" 
       integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 

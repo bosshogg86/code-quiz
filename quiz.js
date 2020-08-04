@@ -7,6 +7,9 @@ const $btn0 = $("#btn0");
 const $btn1 = $("#btn1");
 const $btn2 = $("#btn2");
 const $btn3 = $("#btn3");
+const $highScores = $("#high-scores");
+const $results = $("results");
+let $seconds = $("#seconds");
 let counter = 60;
 let questions = [
   {
@@ -29,9 +32,14 @@ let questions = [
     choices: ["Algorithm", "Function", "Formula", "Programming Language"],
     answer: "Programming Language",
   },
+  {
+    question: "What is an abbreviation for JavaScript?",
+    choices: ["Java", "JS", "TypeScript", "C#"],
+    answer: "JS",
+  },
 ];
-// let availableQuestions = questions.slice(0);
-let currentQuestion = questions[0];
+let currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+
 
 // Functions
 function startQuiz() {
@@ -43,6 +51,7 @@ function startQuiz() {
     if (counter <= 0) {
       clearInterval(interval);
       $("#timer").html("Times Up!");
+      endQuiz();
       return;
     } else {
       $("#seconds").text(counter);
@@ -66,7 +75,12 @@ function getNewQuestion() {
   $btn2.html("");
   $btn3.html("");
   questions.shift();
-  setNextQuestion();
+    if (questions.length <= 0) {
+      endQuiz();
+    } else {
+        setNextQuestion();
+    }
+  
 }
 
 function result() {
@@ -79,10 +93,25 @@ function result() {
   }
 }
 
+function endQuiz() {
+  let userScore = counter;
+  console.log(userScore);
+  $quiz.addClass("hide");
+  $timer.addClass("hide");
+  $results.removeClass("hide");
+}
+
+function showHighScores() {
+  $quiz.addClass("hide");
+  $home.addClass("hide");
+  $timer.addClass("hide");
+  $highScores.removeClass("hide");
+}
+
 // Event listeners
 document.querySelector("#start-btn").addEventListener("click", startQuiz);
-
 document.querySelector("#answer-buttons").addEventListener("click", result);
+document.querySelector("#view-high-scores").addEventListener("click", showHighScores);
 
 // $startBtn.click(startQuiz());
 
