@@ -1,8 +1,12 @@
 // Variable declarations
-const home = document.getElementById("home");
-const timer = document.getElementById("timer");
-const quiz = document.getElementById("quiz");
-const question = document.getElementById("question");
+const $home = $("#home");
+const $timer = $("#timer");
+const $quiz = $("#quiz");
+const $question = $("#question");
+const $btn0 = $("#btn0");
+const $btn1 = $("#btn1");
+const $btn2 = $("#btn2");
+const $btn3 = $("#btn3");
 let counter = 60;
 let questions = [
   {
@@ -26,15 +30,14 @@ let questions = [
     answer: "Programming Language",
   },
 ];
-let availableQuestions = questions.slice();
-let currentQuestion = availableQuestions[0];
-
+// let availableQuestions = questions.slice(0);
+let currentQuestion = questions[0];
 
 // Functions
 function startQuiz() {
-  home.classList.add("hide");
-  quiz.classList.remove("hide");
-  timer.classList.remove("hide");
+  $home.addClass("hide");
+  $quiz.removeClass("hide");
+  $timer.removeClass("hide");
   let interval = setInterval(function () {
     counter--;
     if (counter <= 0) {
@@ -49,32 +52,38 @@ function startQuiz() {
 }
 
 function setNextQuestion() {
-  question.innerText = currentQuestion.question;
-  document.getElementById("btn0").innerText = currentQuestion.choices[0];
-  document.getElementById("btn1").innerText = currentQuestion.choices[1];
-  document.getElementById("btn2").innerText = currentQuestion.choices[2];
-  document.getElementById("btn3").innerText = currentQuestion.choices[3];
+  $question.append(currentQuestion.question);
+  $btn0.append(currentQuestion.choices[0]);
+  $btn1.append(currentQuestion.choices[1]);
+  $btn2.append(currentQuestion.choices[2]);
+  $btn3.append(currentQuestion.choices[3]);
 }
 
-function getQuestion() {
-  availableQuestions.shift();
+function getNewQuestion() {
+  $question.html("");
+  $btn0.html("");
+  $btn1.html("");
+  $btn2.html("");
+  $btn3.html("");
+  questions.shift();
   setNextQuestion();
 }
 
 function result() {
+
   if (event.target.textContent === currentQuestion.answer) {
-    getQuestion();
-    // setNextQuestion();
+    getNewQuestion();
   } else {
     counter -= 10;
-    getQuestion();
-    // setNextQuestion();
+    getNewQuestion();
   }
 }
 
-// availableQuestions.splice();
-
 // Event listeners
-document.getElementById("start-btn").addEventListener("click", startQuiz);
+document.querySelector("#start-btn").addEventListener("click", startQuiz);
 
 document.querySelector("#answer-buttons").addEventListener("click", result);
+
+// $startBtn.click(startQuiz());
+
+// $answerBtn.click(result());
