@@ -8,7 +8,8 @@ const $btn1 = $("#btn1");
 const $btn2 = $("#btn2");
 const $btn3 = $("#btn3");
 const $highScores = $("#high-scores");
-const $results = $("results");
+const $results = $("#results");
+const $userScoreEl = $("#user-score");
 let $seconds = $("#seconds");
 let counter = 60;
 let userScore;
@@ -39,7 +40,8 @@ let questions = [
     answer: "JS",
   },
 ];
-let currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+
 
 
 // Functions
@@ -62,7 +64,8 @@ function startQuiz() {
 }
 
 function setNextQuestion() {
-  let currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+  let currentQuestion = questions[0];
+  console.log(currentQuestion);
   $question.append(currentQuestion.question);
   $btn0.append(currentQuestion.choices[0]);
   $btn1.append(currentQuestion.choices[1]);
@@ -76,7 +79,8 @@ function getNewQuestion() {
   $btn1.html("");
   $btn2.html("");
   $btn3.html("");
-    if (questions.length <= 0) {
+  
+    if (questions.length === 0) {
       endQuiz();
     } else {
       console.log();
@@ -86,31 +90,37 @@ function getNewQuestion() {
 }
 
 function result() {
-
-  if (event.target.textContent === currentQuestion.answer) {
-
+  if (event.target.textContent === questions[0].answer) {
+    console.log("true");
+    questions.shift();
     getNewQuestion();
   } else {
     counter -= 10;
+    questions.shift();
     getNewQuestion();
   }
 }
 
 function endQuiz() {
+  console.log("End quiz");
+  let userScore = counter;
+  console.log(userScore);
   $results.removeClass("hide");
   $quiz.addClass("hide");
   $timer.addClass("hide");
-  saveScore();
+
+  // saveScore();
 }
 
-function saveScore() {
-  
-}
+// function saveScore() {
+//   console.log(userScore);
+// }
 
 function showHighScores() {
   $quiz.addClass("hide");
   $home.addClass("hide");
   $timer.addClass("hide");
+  $results.addClass("hide");
   $highScores.removeClass("hide");
 }
 
@@ -118,7 +128,3 @@ function showHighScores() {
 document.querySelector("#start-btn").addEventListener("click", startQuiz);
 document.querySelector("#answer-buttons").addEventListener("click", result);
 document.querySelector("#view-high-scores").addEventListener("click", showHighScores);
-
-// $startBtn.click(startQuiz());
-
-// $answerBtn.click(result());

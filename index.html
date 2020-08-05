@@ -48,14 +48,17 @@
       <!-- End Screen -->
       <div id="results" class="card hide">
         <h2>Your Score</h2>
-        <h3>Enter your initials</h3>
-          <div class="input"></div>
-          <button type="button" class="btn" id="submit">Submit</button>
+        <h3 id="user-score"></h3>
+        <input type="text" id="initials" name="initials" placeholder="Enter Your Initials">
+        <button type="button" class="btn" id="submit">Save</button>
       </div> 
 
       <!-- High Scores -->
       <div class="card hide" id="high-scores">
         <h2>High Scores</h2>
+        <ul id="userScoreEl">
+
+        </ul>
       </div>
 
     </div>
