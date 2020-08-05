@@ -26,7 +26,7 @@ body {
     min-width: min-content;
 }
 
-#quiz {
+#quiz, .card {
     text-align: center;
     padding: 2rem;
     margin: 5rem;

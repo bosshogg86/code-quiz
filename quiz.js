@@ -88,6 +88,7 @@ function getNewQuestion() {
 function result() {
 
   if (event.target.textContent === currentQuestion.answer) {
+
     getNewQuestion();
   } else {
     counter -= 10;
@@ -96,12 +97,14 @@ function result() {
 }
 
 function endQuiz() {
-  
+  $results.removeClass("hide");
   $quiz.addClass("hide");
   $timer.addClass("hide");
-  $results.removeClass("hide");
-  let userScore = counter;
-  return userScore;
+  saveScore();
+}
+
+function saveScore() {
+  
 }
 
 function showHighScores() {
