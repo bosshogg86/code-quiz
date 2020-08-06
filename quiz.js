@@ -16,7 +16,7 @@ $(document).ready(function(){
   let $seconds = $("#seconds");
   let counter = 60;
   let userScore = 0;
-  let $userInitials = $("#initials")
+  let $userInitials = $("#initials-input");
   let questions = [
     {
       question: "Who invented JavaScript?",
@@ -49,10 +49,10 @@ $(document).ready(function(){
       counter--;
       if (counter <= 0) {
         clearInterval(interval);
-        $("#timer").html("Times Up!");
+        $timer.html("Times Up!");
         endQuiz();
       } else {
-        $("#seconds").text(counter);
+        $seconds.text(counter);
       }
     }, 1000);
     
