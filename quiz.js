@@ -59,7 +59,7 @@ $(document).ready(function(){
         endQuiz();
       } else {
         $seconds.text(counter);
-      } console.log(counter);
+      }
     }, 1000);
   }
   
@@ -74,7 +74,6 @@ $(document).ready(function(){
 
   function setNextQuestion() {
     let currentQuestion = questions[0];
-    console.log(currentQuestion);
     $question.append(currentQuestion.question);
     $btn0.attr("value", currentQuestion.choices[0]);
     $btn1.attr("value", currentQuestion.choices[1]);
@@ -113,7 +112,6 @@ $(document).ready(function(){
   }
 
   function endQuiz() {
-    console.log("End quiz");
     clearInterval(interval);
     $results.show();
     $quiz.hide();
@@ -123,9 +121,8 @@ $(document).ready(function(){
 
   function saveScore() {
     let userInitials = $userInitialsEl.val();
-    console.log(userInitials);
     const $li = $('<li>').addClass("row");
-    $li.text(userInitials += userScore);
+    $li.text(userInitials + " " + userScore);
     $highScoresList.append($li);
     showHighScores();
   }
