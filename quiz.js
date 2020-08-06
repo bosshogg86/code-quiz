@@ -12,7 +12,7 @@ const $results = $("#results");
 const $userScoreEl = $("#user-score");
 let $seconds = $("#seconds");
 let counter = 60;
-let userScore;
+let userScore = counter;
 let questions = [
   {
     question: "Who invented JavaScript?",
@@ -83,7 +83,6 @@ function getNewQuestion() {
     if (questions.length === 0) {
       endQuiz();
     } else {
-      console.log();
         setNextQuestion();
     }
   
@@ -103,18 +102,14 @@ function result() {
 
 function endQuiz() {
   console.log("End quiz");
-  let userScore = counter;
-  console.log(userScore);
   $results.removeClass("hide");
   $quiz.addClass("hide");
   $timer.addClass("hide");
+  }
 
-  // saveScore();
+function saveScore() {
+  console.log(userScore);
 }
-
-// function saveScore() {
-//   console.log(userScore);
-// }
 
 function showHighScores() {
   $quiz.addClass("hide");
@@ -127,4 +122,5 @@ function showHighScores() {
 // Event listeners
 document.querySelector("#start-btn").addEventListener("click", startQuiz);
 document.querySelector("#answer-buttons").addEventListener("click", result);
+document.querySelector("#save-score").addEventListener("click", saveScore);
 document.querySelector("#view-high-scores").addEventListener("click", showHighScores);
