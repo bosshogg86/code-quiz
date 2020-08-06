@@ -82,10 +82,10 @@ $(document).ready(function(){
 
   function getNewQuestion() {
     $question.html("");
-    $btn0.html("");
-    $btn1.html("");
-    $btn2.html("");
-    $btn3.html("");
+    $btn0.text("");
+    $btn1.text("");
+    $btn2.text("");
+    $btn3.text("");
       if (questions.length === 0) {
         endQuiz();
       } else {
