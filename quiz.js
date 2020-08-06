@@ -1,3 +1,5 @@
+$(document).ready(function(){
+  
 // Variable declarations
   const $home = $("#home");
   const $timer = $("#timer");
@@ -61,6 +63,7 @@
         $("#seconds").text(counter);
       }
     }, 1000);
+    console.log(timer)
     setNextQuestion();
   }
 
@@ -102,6 +105,7 @@
   }
 
   function endQuiz() {
+
     console.log("End quiz");
     $results.removeClass("hide");
     $quiz.addClass("hide");
@@ -141,3 +145,4 @@
   $("#save-score").on("click", saveScore);
   $("#view-high-scores").on("click", showHighScores);
 
+});  
