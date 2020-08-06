@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: lightgray;
 }
@@ -16,7 +20,7 @@ body {
    float: right;
 }
 
-#home, #high-scores, #results {
+#home, #high-scores, #results, #high-scores-list {
     text-align: center;
     justify-content: center;
     padding: 5rem;
@@ -35,8 +39,6 @@ body {
     min-width: min-content;
 }
 
-
-
 h2 {
     font-weight: bold;
     margin-bottom: 2rem;
@@ -47,7 +49,7 @@ p {
     
 }
 
-.btn {
+.answer-btn, .btn {
     background-color: rebeccapurple;
     color: white;
     cursor: pointer;
@@ -61,6 +63,10 @@ p {
     margin: auto;
     margin-top: 2rem;
 }
+
+/* li {
+    margin: auto
+} */
 
 .btn:hover {
     opacity: .75;

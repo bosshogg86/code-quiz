@@ -16,7 +16,7 @@ $(document).ready(function(){
   let $seconds = $("#seconds");
   let counter = 60;
   let userScore = 0;
-  let $userInitials = $("#initials-input");
+  let $userInitialsEl = $("#initials-input");
   let questions = [
     {
       question: "Who invented JavaScript?",
@@ -47,33 +47,33 @@ $(document).ready(function(){
 
   let interval = setInterval(function () {
       counter--;
-      if (counter <= 0) {
+      if (counter === 0) {
         clearInterval(interval);
         $timer.html("Times Up!");
         endQuiz();
       } else {
         $seconds.text(counter);
-      }
+      } console.log(counter);
     }, 1000);
     
   // Functions
 
   function startQuiz() {
-    $home.addClass("hide");
-    $quiz.removeClass("hide");
-    $timer.removeClass("hide");
+    $home.hide();
+    $quiz.show();
+    $timer.show();
     
     setNextQuestion();
-  }
-
-  function stopTimer() {
-    clearInterval(interval);
   }
 
   function setNextQuestion() {
     let currentQuestion = questions[0];
     console.log(currentQuestion);
     $question.append(currentQuestion.question);
+    $btn0.attr("value", currentQuestion.choices[0]);
+    $btn1.attr("value", currentQuestion.choices[1]);
+    $btn2.attr("value", currentQuestion.choices[2]);
+    $btn3.attr("value", currentQuestion.choices[3]);
     $btn0.append(currentQuestion.choices[0]);
     $btn1.append(currentQuestion.choices[1]);
     $btn2.append(currentQuestion.choices[2]);
@@ -95,7 +95,7 @@ $(document).ready(function(){
   }
 
   function result() {
-    if (event.target.textContent === questions[0].answer) {
+    if (event.target.value === questions[0].answer) {
       userScore += 100;
       questions.shift();
       getNewQuestion();
@@ -108,42 +108,36 @@ $(document).ready(function(){
 
   function endQuiz() {
     console.log("End quiz");
-    stopTimer(interval);
-    $results.removeClass("hide");
-    $quiz.addClass("hide");
-    $timer.addClass("hide");
+    clearInterval(interval);
+    $results.show();
+    $quiz.hide();
+    $timer.hide();
     $userScoreEl.append(userScore);
     }
 
   function saveScore() {
-    const $li = $('<li>');
-    $li.text(userScore);
-    $highScoresList.append($li);
+    let userInitials = $userInitialsEl.val();
+    console.log(userInitials);
+    const $liInitials = $('<li>').addClass("col");
+    $liInitials.text(userInitials);
+    const $liScore = $('<li>').addClass("col");
+    $liScore.text(userScore);
+    $highScoresList.append($liInitials);
+    $highScoresList.append($liScore);
     showHighScores();
   }
 
-  // // var li = document.createElement("li");
-  // const $li = $('<li>');
-  // // li.textContent = todo;
-  // $li.text(todo);
-  // // li.setAttribute("data-index", i);
-  // $li.attr('data-index', i);
-  // const $button = $('<button>').text('Complete');
-  // // $li.appendChild(button);
-  // $li.append($button);
-  // todoList.appendChild(li);
-
   function showHighScores() {
-    $quiz.addClass("hide");
-    $home.addClass("hide");
-    $timer.addClass("hide");
-    $results.addClass("hide");
-    $highScores.removeClass("hide");
+    $quiz.hide();
+    $home.hide();
+    $timer.hide();
+    $results.hide();
+    $highScores.show();
   }
 
   // Event listeners
   $("#start-btn").on("click", startQuiz);
-  $("#answer-buttons").on("click", result);
+  $(".answer-btn").on("click", result);
   $("#save-score").on("click", saveScore);
   $("#view-high-scores").on("click", showHighScores);
 
