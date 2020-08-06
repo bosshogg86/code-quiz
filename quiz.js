@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  
+
 // Variable declarations
   const $home = $("#home");
   const $timer = $("#timer");
@@ -45,15 +45,7 @@ $(document).ready(function(){
     },
   ];
 
-
-
-
-  // Functions
-  function startQuiz() {
-    $home.addClass("hide");
-    $quiz.removeClass("hide");
-    $timer.removeClass("hide");
-    let interval = setInterval(function () {
+  let interval = setInterval(function () {
       counter--;
       if (counter <= 0) {
         clearInterval(interval);
@@ -63,8 +55,19 @@ $(document).ready(function(){
         $("#seconds").text(counter);
       }
     }, 1000);
-    console.log(timer)
+    
+  // Functions
+
+  function startQuiz() {
+    $home.addClass("hide");
+    $quiz.removeClass("hide");
+    $timer.removeClass("hide");
+    
     setNextQuestion();
+  }
+
+  function stopTimer() {
+    clearInterval(interval);
   }
 
   function setNextQuestion() {
@@ -83,7 +86,6 @@ $(document).ready(function(){
     $btn1.html("");
     $btn2.html("");
     $btn3.html("");
-    
       if (questions.length === 0) {
         endQuiz();
       } else {
@@ -105,8 +107,8 @@ $(document).ready(function(){
   }
 
   function endQuiz() {
-
     console.log("End quiz");
+    stopTimer(interval);
     $results.removeClass("hide");
     $quiz.addClass("hide");
     $timer.addClass("hide");
