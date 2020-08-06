@@ -17,6 +17,8 @@ $(document).ready(function(){
   let counter = 60;
   let userScore = 0;
   let $userInitialsEl = $("#initials-input");
+  let scores = [];
+  let interval;
   let questions = [
     {
       question: "Who invented JavaScript?",
@@ -45,7 +47,11 @@ $(document).ready(function(){
     },
   ];
 
-  let interval = setInterval(function () {
+  
+    
+  // Functions
+  function startTimer() {
+    interval = setInterval(function () {
       counter--;
       if (counter === 0) {
         clearInterval(interval);
@@ -55,14 +61,14 @@ $(document).ready(function(){
         $seconds.text(counter);
       } console.log(counter);
     }, 1000);
-    
-  // Functions
+  }
+  
 
   function startQuiz() {
     $home.hide();
     $quiz.show();
     $timer.show();
-    
+    startTimer();
     setNextQuestion();
   }
 
@@ -118,16 +124,14 @@ $(document).ready(function(){
   function saveScore() {
     let userInitials = $userInitialsEl.val();
     console.log(userInitials);
-    const $liInitials = $('<li>').addClass("col");
-    $liInitials.text(userInitials);
-    const $liScore = $('<li>').addClass("col");
-    $liScore.text(userScore);
-    $highScoresList.append($liInitials);
-    $highScoresList.append($liScore);
+    const $li = $('<li>').addClass("row");
+    $li.text(userInitials += userScore);
+    $highScoresList.append($li);
     showHighScores();
   }
 
   function showHighScores() {
+    clearInterval(interval);
     $quiz.hide();
     $home.hide();
     $timer.hide();
@@ -135,10 +139,16 @@ $(document).ready(function(){
     $highScores.show();
   }
 
+  function reload() {
+    location.reload();
+  }
+
+
   // Event listeners
   $("#start-btn").on("click", startQuiz);
   $(".answer-btn").on("click", result);
   $("#save-score").on("click", saveScore);
   $("#view-high-scores").on("click", showHighScores);
+  $("#start-over").on("click", reload);
 
 });  
