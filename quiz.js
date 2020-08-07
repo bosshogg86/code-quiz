@@ -119,7 +119,7 @@ $(document).ready(function(){
   
     function saveScore() {
       // let userInitials = $userInitialsEl.val();
-      // const $li = $('<li>').addClass("row");
+      // const $li = $('<li>');
       // $li.text(userInitials + " " + userScore);
       // $highScoresList.append($li);
       showHighScores();
@@ -127,7 +127,7 @@ $(document).ready(function(){
       if (userInitials === "") {
         return;
       }
-      savedScore = (userInitials + userScore);
+      savedScore = (userInitials + " " + userScore);
       scores.push(savedScore);
       $userInitialsEl.val('');
       savedScore = ('');
