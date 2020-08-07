@@ -118,11 +118,7 @@ $(document).ready(function () {
 
   function saveScore() {
     showHighScores();
-    let userInitials = $userInitialsEl.val().trim();
-    if (userInitials === "") {
-      return;
-    }
-    let savedScore = (userInitials + " " + userScore);
+    let savedScore = userInitials + " " + userScore;
     scores.push(savedScore);
     $userInitialsEl.val("");
     savedScore = "";

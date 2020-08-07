@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
     <!-- Navbar -->
     <nav class="navbar">
       <a href="#" id="view-high-scores">View High Scores</a>
@@ -26,13 +25,14 @@
     <!-- Start Page -->
     <div class="container">
       <div id="home" class="card">
-          <h2>Coding Quiz Challenge</h2>
-          <p>
-            Try to answer the following questions within the time limit. Each correct answer is worth 100 points. Be careful,
-            each wrong answer subtracts 10 seconds from the total remaining time!
-          </p>
-          <button type="button" class="btn" id="start-btn">Start Quiz</button>
-      </div>  
+        <h2>Coding Quiz Challenge</h2>
+        <p>
+          Try to answer the following questions within the time limit. Each
+          correct answer is worth 100 points. Be careful, each wrong answer
+          subtracts 10 seconds from the total remaining time!
+        </p>
+        <button type="button" class="btn" id="start-btn">Start Quiz</button>
+      </div>
 
       <!-- Question container -->
       <div id="quiz" class="hide card">
@@ -43,31 +43,35 @@
           <button type="button" class="answer-btn btn" id="btn2"></button>
           <button type="button" class="answer-btn btn" id="btn3"></button>
         </div>
-      </div> 
+      </div>
 
       <!-- End Screen -->
       <div id="results" class="card hide">
         <h2>Your Score</h2>
         <h3 id="user-score"></h3>
-        <input class="row" type="text" id="initials-input" name="initials" placeholder="Enter Your Initials">
+        <input
+          class="row"
+          type="text"
+          id="initials-input"
+          name="initials"
+          placeholder="Enter Your Initials"
+        />
         <button type="submit" class="btn" id="save-score">Save</button>
-      </div> 
+      </div>
 
       <!-- High Scores -->
       <div class="card hide" id="high-scores">
         <h2>High Scores</h2>
-        <ul class="row" id="high-scores-list">
-        </ul>
+        <ul class="row" id="high-scores-list"></ul>
         <button type="button" class="btn" id="start-over">Start Again</button>
       </div>
-
     </div>
-    
 
-    <script 
-      src="https://code.jquery.com/jquery-3.5.1.js" 
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
-      crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
       integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

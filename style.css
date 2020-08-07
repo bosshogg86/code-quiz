@@ -1,78 +1,84 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 .high-scores {
-    color: rebeccapurple;
-    opacity: 1;
+  color: rebeccapurple;
+  opacity: 1;
 }
 
 .high-scores:hover {
-    opacity: .75;
-    color: rebeccapurple;
+  opacity: 0.75;
+  color: rebeccapurple;
 }
 
 #timer {
-   float: right;
+  float: right;
 }
 
-#home, #high-scores, #results {
-    text-align: center;
-    justify-content: center;
-    padding: 5rem;
-    margin: 5rem;
-    margin-left: 10rem;
-    margin-right: 10rem;
-    min-width: min-content;
+#home,
+#high-scores,
+#results {
+  text-align: center;
+  justify-content: center;
+  padding: 5rem;
+  margin: 5rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  min-width: min-content;
 }
 
-#quiz  {
-    text-align: center;
-    padding: 2rem;
-    margin: 5rem;
-    margin-left: 8rem;
-    margin-right: 8rem;
-    min-width: min-content;
+#quiz {
+  text-align: center;
+  padding: 2rem;
+  margin: 5rem;
+  margin-left: 8rem;
+  margin-right: 8rem;
+  min-width: min-content;
 }
 
 h2 {
-    font-weight: bold;
-    margin-bottom: 2rem;
- }
-
-p, #user-score {
-    margin-bottom: 3rem;
-    
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
 
-#initials-input, #high-scores-list {
-    display: block;
-    margin: auto;
-    }
-
-.answer-btn, .btn {
-    background-color: rebeccapurple;
-    color: white;
-    cursor: pointer;
-    opacity: 1;
-    max-width: max-content;
-    margin: 1rem;
-    text-align: center;
+p,
+#user-score {
+  margin-bottom: 3rem;
 }
 
-#start-btn, #save-score, #start-over {
-    margin: auto;
-    margin-top: 2rem;
+#initials-input,
+#high-scores-list {
+  display: block;
+  margin: auto;
+}
+
+.answer-btn,
+.btn {
+  background-color: rebeccapurple;
+  color: white;
+  cursor: pointer;
+  opacity: 1;
+  max-width: max-content;
+  margin: 1rem;
+  text-align: center;
+}
+
+#start-btn,
+#save-score,
+#start-over {
+  margin: auto;
+  margin-top: 2rem;
 }
 
 .btn:hover {
-    opacity: .75;
+  opacity: 0.75;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
