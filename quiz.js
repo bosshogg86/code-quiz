@@ -46,6 +46,7 @@ $(document).ready(function () {
     },
   ];
 
+ 
   init();
 
   // Functions
@@ -99,10 +100,14 @@ $(document).ready(function () {
   function result() {
     if (event.target.value === questions[0].answer) {
       userScore += 100;
+      $("#correct").show();
+      setTimeout(function() { $("#correct").hide(); }, 1000);
       questions.shift();
       getNewQuestion();
     } else {
       counter -= 10;
+      $("#incorrect").show();
+      setTimeout(function() { $("#incorrect").hide(); }, 1000);
       questions.shift();
       getNewQuestion();
     }
@@ -116,12 +121,17 @@ $(document).ready(function () {
     $userScoreEl.append(userScore);
   }
 
+  
+
   function saveScore() {
-    showHighScores();
-    let savedScore = userInitials + " " + userScore;
+    let userInitials = $userInitialsEl.val().trim();
+    let savedScore = (userInitials + " " + userScore);
+    if (userInitials === "") {
+      return;
+    }
     scores.push(savedScore);
     $userInitialsEl.val("");
-    savedScore = "";
+    showHighScores();
     storeScores();
     renderScores();
   }

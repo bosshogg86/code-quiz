@@ -75,6 +75,16 @@ p,
   margin-top: 2rem;
 }
 
+#correct {
+    color: green;
+    text-align: center;
+}
+
+#incorrect {
+    color: red;
+    text-align: center;
+}
+
 .btn:hover {
   opacity: 0.75;
 }
