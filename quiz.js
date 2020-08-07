@@ -53,7 +53,7 @@ $(document).ready(function(){
     function startTimer() {
       interval = setInterval(function () {
         counter--;
-        if (counter === 0) {
+        if (counter <= 0) {
           clearInterval(interval);
           $timer.html("Times Up!");
           endQuiz();
