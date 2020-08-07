@@ -20,7 +20,7 @@ body {
    float: right;
 }
 
-#home, #high-scores, #results, #high-scores-list {
+#home, #high-scores, #results {
     text-align: center;
     justify-content: center;
     padding: 5rem;
@@ -49,7 +49,7 @@ p, #user-score {
     
 }
 
-#initials-input {
+#initials-input, #high-scores-list {
     display: block;
     margin: auto;
     }
@@ -64,7 +64,7 @@ p, #user-score {
     text-align: center;
 }
 
-#start-btn, #save-score {
+#start-btn, #save-score, #start-over {
     margin: auto;
     margin-top: 2rem;
 }
