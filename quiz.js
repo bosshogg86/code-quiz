@@ -137,6 +137,7 @@ $(document).ready(function () {
   }
 
   function showHighScores() {
+    $( "#high-scores-list").empty();
     clearInterval(interval);
     $quiz.hide();
     $home.hide();
