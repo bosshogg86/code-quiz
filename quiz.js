@@ -46,10 +46,10 @@ $(document).ready(function () {
     },
   ];
 
- 
+  // Check local storage
   init();
 
-  // Functions
+  // Start timer
   function startTimer() {
     interval = setInterval(function () {
       counter--;
@@ -63,6 +63,7 @@ $(document).ready(function () {
     }, 1000);
   }
 
+  // Start quiz
   function startQuiz() {
     $home.hide();
     $quiz.show();
@@ -71,6 +72,7 @@ $(document).ready(function () {
     setNextQuestion();
   }
 
+  // Set next question
   function setNextQuestion() {
     let currentQuestion = questions[0];
     $question.append(currentQuestion.question);
@@ -84,6 +86,7 @@ $(document).ready(function () {
     $btn3.append(currentQuestion.choices[3]);
   }
 
+  // Clear last question/gets new question
   function getNewQuestion() {
     $question.html("");
     $btn0.text("");
@@ -97,6 +100,7 @@ $(document).ready(function () {
     }
   }
 
+  // Check answer
   function result() {
     if (event.target.value === questions[0].answer) {
       userScore += 100;
@@ -113,6 +117,7 @@ $(document).ready(function () {
     }
   }
 
+  // End quiz
   function endQuiz() {
     clearInterval(interval);
     $results.show();
@@ -122,7 +127,7 @@ $(document).ready(function () {
   }
 
   
-
+  // Save score and initials to array
   function saveScore() {
     let userInitials = $userInitialsEl.val().trim();
     let savedScore = (userInitials + " " + userScore);
@@ -136,6 +141,7 @@ $(document).ready(function () {
     renderScores();
   }
 
+  // Show High Scores
   function showHighScores() {
     $( "#high-scores-list").empty();
     clearInterval(interval);
@@ -146,10 +152,12 @@ $(document).ready(function () {
     $highScores.show();
   }
 
+  // Reloads quiz
   function reload() {
     location.reload();
   }
 
+  // Check local storage
   function init() {
     if (localStorage.getItem("scores")) {
       const savedScores = JSON.parse(localStorage.getItem("scores"));
@@ -158,6 +166,7 @@ $(document).ready(function () {
     }
   }
 
+  // Append scores to list
   function renderScores() {
     for (let i = 0; i < scores.length; i++) {
       const score = scores[i];
@@ -168,6 +177,7 @@ $(document).ready(function () {
     }
   }
 
+  // Store scores locally
   function storeScores() {
     localStorage.setItem("scores", JSON.stringify(scores));
   }
