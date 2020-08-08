@@ -177,6 +177,12 @@ $(document).ready(function () {
     }
   }
 
+  // View high scores 
+  function viewHighScores () {
+    showHighScores();
+    renderScores();
+  }
+
   // Store scores locally
   function storeScores() {
     localStorage.setItem("scores", JSON.stringify(scores));
@@ -186,6 +192,6 @@ $(document).ready(function () {
   $("#start-btn").on("click", startQuiz);
   $(".answer-btn").on("click", result);
   $("#save-score").on("click", saveScore);
-  $("#view-high-scores").on("click", showHighScores);
+  $("#view-high-scores").on("click", viewHighScores);
   $("#start-over").on("click", reload);
 });
