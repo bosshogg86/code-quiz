@@ -48,13 +48,15 @@ h2, h3 {
 p,
 #user-score {
   margin-bottom: 3rem;
-  font-family: 'Open Sans', sans-serif;
 }
 
 #initials-input,
 #high-scores-list {
   display: block;
   margin: auto;
+  margin-bottom: 2rem;
+  font-family: 'Luckiest Guy', cursive;
+
 }
 
 .answer-btn,
