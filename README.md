@@ -22,4 +22,4 @@ When the user clicks the start quiz button the timer will start and they will be
 
 [Code-Quiz](https://bosshogg86.github.io/code-quiz/)
 
-![Screenshot](Assets/Code-Quiz-screenshot.png)
+![Screenshot](Assets/Code-quiz-screenshot.png)

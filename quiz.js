@@ -44,6 +44,16 @@ $(document).ready(function () {
       choices: ["Java", "JS", "TypeScript", "C#"],
       answer: "JS",
     },
+    {
+      question: "Which of the following is not a JavaScript term?",
+      choices: ["Let", "Const", "Var", "Jav"],
+      answer: "Jav",
+    },
+    {
+      question: "Which of the following is a JavaScript loop?",
+      choices: ["When", "Because", "For", "Then"],
+      answer: "For",
+    },  
   ];
 
   // Check local storage
