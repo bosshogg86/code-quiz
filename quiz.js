@@ -55,6 +55,7 @@ $(document).ready(function () {
       answer: "For",
     },  
   ];
+  let currentQuestion = 0;
 
   // Check local storage
   init();
@@ -84,18 +85,17 @@ $(document).ready(function () {
 
   // Set next question
   function setNextQuestion() {
-    let currentQuestion = questions[0];
-    $question.append(currentQuestion.question);
-    $btn0.attr("value", currentQuestion.choices[0]);
-    $btn1.attr("value", currentQuestion.choices[1]);
-    $btn2.attr("value", currentQuestion.choices[2]);
-    $btn3.attr("value", currentQuestion.choices[3]);
-    $btn0.append(currentQuestion.choices[0]);
-    $btn1.append(currentQuestion.choices[1]);
-    $btn2.append(currentQuestion.choices[2]);
-    $btn3.append(currentQuestion.choices[3]);
+    $question.append(questions[currentQuestion].question);
+    $btn0.attr("value", questions[currentQuestion].choices[0]);
+    $btn1.attr("value", questions[currentQuestion].choices[1]);
+    $btn2.attr("value", questions[currentQuestion].choices[2]);
+    $btn3.attr("value", questions[currentQuestion].choices[3]);
+    $btn0.append(questions[currentQuestion].choices[0]);
+    $btn1.append(questions[currentQuestion].choices[1]);
+    $btn2.append(questions[currentQuestion].choices[2]);
+    $btn3.append(questions[currentQuestion].choices[3]);
   }
-
+  
   // Clear last question/gets new question
   function getNewQuestion() {
     $question.html("");
@@ -103,26 +103,27 @@ $(document).ready(function () {
     $btn1.text("");
     $btn2.text("");
     $btn3.text("");
-    if (questions.length === 0) {
+    if (questions[currentQuestion] === questions[6]) {
       endQuiz();
     } else {
+      currentQuestion++;
       setNextQuestion();
     }
   }
 
   // Check answer
   function result() {
-    if (event.target.value === questions[0].answer) {
+    if (event.target.value === questions[currentQuestion].answer) {
       userScore += 100;
       $("#correct").show();
       setTimeout(function() { $("#correct").hide(); }, 1000);
-      questions.shift();
       getNewQuestion();
     } else {
       counter -= 10;
       $("#incorrect").show();
       setTimeout(function() { $("#incorrect").hide(); }, 1000);
-      questions.shift();
+     
+
       getNewQuestion();
     }
   }
