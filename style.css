@@ -43,6 +43,7 @@ body {
 #question {
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
+  margin-top: 2rem;
 }
 
 h2, h3 {
