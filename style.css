@@ -4,6 +4,7 @@
 
 body {
   background-color: lightgray;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .high-scores {
@@ -39,14 +40,15 @@ body {
   box-shadow: 8px 8px 20px rgba(0,0,0,.16);
 }
 
-h2 {
-  font-weight: bold;
+h2, h3 {
   margin-bottom: 2rem;
+  font-family: 'Luckiest Guy', cursive;
 }
 
 p,
 #user-score {
   margin-bottom: 3rem;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #initials-input,
