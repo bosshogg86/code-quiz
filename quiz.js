@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // Variable declarations
+  // JQuery declarations
   const $home = $("#home");
   const $timer = $("#timer");
   const $quiz = $("#quiz");
@@ -13,9 +13,11 @@ $(document).ready(function () {
   const $results = $("#results");
   const $userScoreEl = $("#user-score");
   let $seconds = $("#seconds");
+  let $userInitialsEl = $("#initials-input");
+
+  // Variable declarations
   let counter = 60;
   let userScore = 0;
-  let $userInitialsEl = $("#initials-input");
   let scores = [];
   let interval;
   let questions = [
@@ -53,7 +55,7 @@ $(document).ready(function () {
       question: "Which of the following is a JavaScript loop?",
       choices: ["When", "Because", "For", "Then"],
       answer: "For",
-    },  
+    },
   ];
   let currentQuestion = 0;
 
@@ -74,15 +76,6 @@ $(document).ready(function () {
     }, 1000);
   }
 
-  // Start quiz
-  function startQuiz() {
-    $home.hide();
-    $quiz.show();
-    $timer.show();
-    startTimer();
-    setNextQuestion();
-  }
-
   // Set next question
   function setNextQuestion() {
     $question.append(questions[currentQuestion].question);
@@ -95,7 +88,7 @@ $(document).ready(function () {
     $btn2.append(questions[currentQuestion].choices[2]);
     $btn3.append(questions[currentQuestion].choices[3]);
   }
-  
+
   // Clear last question/gets new question
   function getNewQuestion() {
     $question.html("");
@@ -111,22 +104,6 @@ $(document).ready(function () {
     }
   }
 
-  // Check answer
-  function result() {
-    if (event.target.value === questions[currentQuestion].answer) {
-      
-      userScore += 100;
-      $("#correct").show();
-      setTimeout(function() { $("#correct").hide(); }, 1000);
-      getNewQuestion();
-    } else {
-      counter -= 10;
-      $("#incorrect").show();
-      setTimeout(function() { $("#incorrect").hide(); }, 1000);
-      getNewQuestion();
-    }
-  }
-
   // End quiz
   function endQuiz() {
     clearInterval(interval);
@@ -136,35 +113,15 @@ $(document).ready(function () {
     $userScoreEl.append(userScore);
   }
 
-  
-  // Save score and initials to array
-  function saveScore() {
-    let userInitials = $userInitialsEl.val().trim();
-    let savedScore = (userInitials + " " + userScore);
-    if (userInitials === "") {
-      return;
-    }
-    scores.push(savedScore);
-    $userInitialsEl.val("");
-    showHighScores();
-    storeScores();
-    renderScores();
-  }
-
   // Show High Scores
   function showHighScores() {
-    $( "#high-scores-list").empty();
+    $("#high-scores-list").empty();
     clearInterval(interval);
     $quiz.hide();
     $home.hide();
     $timer.hide();
     $results.hide();
     $highScores.show();
-  }
-
-  // Reloads quiz
-  function reload() {
-    location.reload();
   }
 
   // Check local storage
@@ -187,21 +144,63 @@ $(document).ready(function () {
     }
   }
 
-  // View high scores 
-  function viewHighScores () {
-    showHighScores();
-    renderScores();
-  }
-
   // Store scores locally
   function storeScores() {
     localStorage.setItem("scores", JSON.stringify(scores));
   }
 
-  // Event listeners
-  $("#start-btn").on("click", startQuiz);
-  $(".answer-btn").on("click", result);
-  $("#save-score").on("click", saveScore);
-  $("#view-high-scores").on("click", viewHighScores);
-  $("#start-over").on("click", reload);
+  // on Click Events
+
+  // Start quiz
+  $("#start-btn").on("click", function () {
+    $home.hide();
+    $quiz.show();
+    $timer.show();
+    startTimer();
+    setNextQuestion();
+  });
+
+  // Check answer
+  $(".answer-btn").on("click", function () {
+    if (event.target.value === questions[currentQuestion].answer) {
+      userScore += 100;
+      $("#correct").show();
+      setTimeout(function () {
+        $("#correct").hide();
+      }, 1000);
+      getNewQuestion();
+    } else {
+      counter -= 10;
+      $("#incorrect").show();
+      setTimeout(function () {
+        $("#incorrect").hide();
+      }, 1000);
+      getNewQuestion();
+    }
+  });
+
+  // Save score and initials to array
+  $("#save-score").on("click", function () {
+    let userInitials = $userInitialsEl.val().toUpperCase().trim();
+    let savedScore = userInitials + " " + userScore;
+    if (userInitials === "") {
+      return;
+    }
+    scores.push(savedScore);
+    $userInitialsEl.val("");
+    showHighScores();
+    storeScores();
+    renderScores();
+  });
+
+  // View high scores
+  $("#view-high-scores").on("click", function () {
+    showHighScores();
+    renderScores();
+  });
+
+  // Reloads quiz
+  $("#start-over").on("click", function () {
+    location.reload();
+  });
 });
