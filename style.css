@@ -40,6 +40,11 @@ body {
   box-shadow: 8px 8px 20px rgba(0,0,0,.16);
 }
 
+#question {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+}
+
 h2, h3 {
   margin-bottom: 2rem;
   font-family: 'Luckiest Guy', cursive;
@@ -56,7 +61,8 @@ p,
   margin: auto;
   margin-bottom: 2rem;
   text-align: center;
-  font-family: 'Luckiest Guy', cursive;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
 
 }
 
