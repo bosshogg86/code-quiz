@@ -114,6 +114,7 @@ $(document).ready(function () {
   // Check answer
   function result() {
     if (event.target.value === questions[currentQuestion].answer) {
+      
       userScore += 100;
       $("#correct").show();
       setTimeout(function() { $("#correct").hide(); }, 1000);
@@ -122,8 +123,6 @@ $(document).ready(function () {
       counter -= 10;
       $("#incorrect").show();
       setTimeout(function() { $("#incorrect").hide(); }, 1000);
-     
-
       getNewQuestion();
     }
   }
